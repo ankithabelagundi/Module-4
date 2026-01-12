@@ -1,0 +1,157 @@
+a) Package Managers
+What is a package manager?
+
+A package manager is a tool that helps us download, install, update, and remove libraries (packages) that our project needs.
+
+In backend development, instead of writing everything from scratch, we use ready-made packages for things like servers, databases, security, etc.
+
+Simple example:
+
+If you want to create a server, you can install the express package instead of writing all server code yourself.
+
+Why do we need package managers in backend development?
+
+To save time by using existing libraries.
+
+To manage project dependencies easily.
+
+To keep versions under control so the app works the same on every computer.
+
+To update packages safely when new features or bug fixes are released.
+
+Problems if package managers are not used
+
+You must manually download and copy files for every library.
+
+Version mismatch: one developer may use a different version than another.
+
+Hard to update or remove libraries.
+
+More chances of errors and broken projects.
+
+b) NPM (Node Package Manager)
+What is NPM?
+
+NPM is the default package manager for Node.js. It helps us install and manage third-party packages for our backend applications.
+
+Example:
+
+npm install express
+
+This command downloads Express and adds it to your project.
+
+Why is NPM important for Node.js applications?
+
+It gives access to thousands of ready-made packages.
+
+Automatically manages dependencies.
+
+Makes project setup fast and simple.
+
+Helps teams work on the same project without version problems.
+
+How NPM helps in managing dependencies
+
+When you install a package, NPM:
+
+Adds it to package.json
+
+Downloads it into node_modules
+
+Records exact versions in package-lock.json
+
+When another developer runs npm install, NPM installs the same versions, ensuring the project works the same everywhere.
+
+c) Backend Project Initialization
+Command to initialize a Node.js project
+npm init
+
+This command creates a new Node.js project.
+
+Difference between npm init and npm init -y
+npm init
+
+Asks questions like:
+
+Project name
+
+Version
+
+Description
+
+Author
+
+Creates package.json based on your answers.
+
+npm init -y
+
+Automatically creates package.json with default values.
+
+Faster when you don’t want to answer questions.
+
+d) Files and Folders After Project Initialization
+1) package.json
+
+Purpose:
+
+Main configuration file of the project.
+
+Stores:
+
+Project name and version
+
+Scripts (like start, dev)
+
+List of dependencies
+
+Why it is important:
+
+Tells NPM what packages your project needs.
+
+Makes it easy for others to install the same setup.
+
+2) node_modules
+
+Purpose:
+
+Contains all installed packages and their code.
+
+Why it is important:
+
+Your application uses these files to run.
+
+Why it should NOT be pushed to GitHub:
+
+Very large in size.
+
+Can be recreated anytime using:
+
+npm install
+
+Storing it in GitHub makes the repository heavy and slow.
+
+3) package-lock.json
+
+Purpose:
+
+Stores the exact versions of installed packages.
+
+Ensures the same dependency tree for every developer.
+
+Why it is important:
+
+Prevents “works on my system” problems.
+
+Keeps the project stable across different machines
+node_modules/
+
+Reason: Can be regenerated, very large.
+package.json
+
+So others know which dependencies are required.
+
+package-lock.json
+
+So exact versions are installed everywhere.
+
+Your project files (app.js, routes, controllers, etc.)
