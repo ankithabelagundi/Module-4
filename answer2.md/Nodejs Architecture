@@ -1,0 +1,200 @@
+Node.js Architecture
+
+Node.js is a way to run JavaScript outside the browser. It is designed to be fast and non-blocking. Instead of creating a new thread for every request, Node.js runs JavaScript on one main thread and uses background systems for slow tasks.
+
+Main parts of Node.js:
+
+JavaScript Layer: Where we write our code using built-in modules like fs, http, etc.
+
+Node Core (C++): Low-level code that connects JavaScript with the operating system.
+
+V8 Engine: Runs JavaScript code.
+
+libuv: Manages async tasks, event loop, and background threads.
+
+Simple idea:
+
+One thread runs JavaScript.
+
+Time-taking work (file, network, crypto) is done in the background.
+
+This keeps the app fast and responsive.
+
+2) JavaScript Engine (V8)
+
+V8 is the engine that executes JavaScript.
+
+What V8 does:
+
+Reads and runs JavaScript code.
+
+Converts JS into machine code for speed.
+
+Manages memory and removes unused objects (garbage collection).
+
+In Node.js:
+
+V8 runs your JS code.
+
+When you use APIs like fs.readFile(), V8 passes the work to Node’s internal system which uses libuv to do it asynchronously.
+
+3) Node.js Core APIs
+
+These are built-in modules provided by Node.js such as fs, http, path, crypto.
+
+Role:
+
+Give easy JavaScript functions for system tasks.
+
+Internally connect to C++ code for performance.
+
+Example:
+
+fs.readFile() looks like a normal JS function, but the real file reading is done by Node internally.
+
+4) Native Bindings
+
+Native bindings are the connection between JavaScript and C/C++ code inside Node.js.
+
+Why they are needed:
+
+JavaScript alone cannot directly talk to the operating system.
+
+Native bindings allow Node to use OS features like file systems and networking.
+
+Flow: JavaScript → Node API → C/C++ (native) → OS/libuv → result back to JavaScript
+
+5) Event Loop
+
+The event loop is the system that decides what runs next in Node.js.
+
+What it does:
+
+Keeps checking for finished tasks.
+
+Runs their callbacks in order.
+
+Makes sure the main thread does not get blocked.
+
+Why it is important:
+
+Allows Node.js to handle many users at the same time using one thread.
+
+Prevents slow operations from freezing the program.
+
+6) libuv
+What is libuv?
+
+libuv is a C library used by Node.js to handle:
+
+Asynchronous operations
+
+Event loop
+
+Timers
+
+Networking
+
+Thread pool
+
+Why Node.js needs libuv
+
+Different operating systems work differently; libuv gives Node.js a common way to work on all of them.
+
+JavaScript cannot manage low-level async operations by itself.
+
+Responsibilities of libuv
+
+Runs the event loop.
+
+Handles non-blocking network and file operations.
+
+Manages timers like setTimeout().
+
+Controls the thread pool for blocking tasks.
+
+7) Thread Pool
+What is a thread pool?
+
+A thread pool is a group of background threads that run tasks which would otherwise block the main thread.
+
+Why Node.js uses a thread pool
+
+Some tasks are slow and blocking by nature.
+
+To keep the main JavaScript thread free and responsive.
+
+Which operations use the thread pool
+
+File system operations (fs)
+
+DNS lookups
+
+Encryption and decryption (crypto)
+
+Compression (zlib)
+
+Note:
+
+By default, the thread pool has 4 threads.
+
+8) Worker Threads
+What are worker threads?
+
+Worker threads are separate JavaScript threads that can run code in parallel. Each worker has its own event loop.
+
+Why are worker threads needed?
+
+JavaScript in Node runs on a single thread.
+
+Heavy calculations can block the event loop.
+
+Worker threads allow such work to run in parallel without slowing the main app.
+
+Difference: Thread Pool vs Worker Threads
+Feature	Thread Pool	Worker Threads
+Used for	Blocking system tasks	CPU-heavy JavaScript tasks
+Runs	C/C++ code	JavaScript code
+Control	Managed automatically	Created by developer
+Event Loop	Uses main loop	Has its own loop
+9) Event Loop Queues
+
+Node.js uses different queues to decide the order of execution.
+
+Macro Task Queue
+
+Holds tasks that come from timers and I/O.
+
+Examples:
+
+setTimeout()
+
+setInterval()
+
+File and network callbacks
+
+setImmediate()
+
+Micro Task Queue
+
+Holds tasks that must run before the next macro task.
+
+Examples:
+
+Promise.then()
+
+catch() and finally()
+
+process.nextTick()
+
+Execution Priority
+
+Current JavaScript code
+
+Micro task queue (runs completely)
+
+Macro task queue (runs next tasks)
+
+Meaning:
+
+Promise callbacks always execute before timers and I/O callbacks.

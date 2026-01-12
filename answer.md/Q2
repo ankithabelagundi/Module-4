@@ -1,0 +1,29 @@
+Q2. Role of Backend (BE)
+
+The Backend works behind the scenes. It handles data, logic, and security and ensures the application works correctly.
+
+1. Server-Side Processing
+
+Backend receives requests from the frontend, processes them, applies business rules, and sends back the result. For example, checking login credentials or calculating order totals.
+
+2. Database Handling
+
+Backend connects to databases to:
+
+Store data (user details, orders, products)
+
+Retrieve data
+
+Update or delete records
+It ensures data is organized and managed efficiently.
+
+3. Security and Authentication
+
+Backend is responsible for:
+
+Verifying user identity (login, tokens, sessions)
+
+Authorizing access (who can view or edit data)
+
+Protecting sensitive data using encryption and secure APIs
+This prevents unauthorized access and data leaks.

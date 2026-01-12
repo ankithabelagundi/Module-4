@@ -1,0 +1,27 @@
+Q3. Business Logic
+
+Business Logic is the set of rules that defines how an application should behave according to business requirements. It decides what is allowed, what is restricted, and how data should be processed.
+
+Business logic does not deal with how things look (frontend) or how data is stored (database). Instead, it focuses on rules and decision-making.
+
+Examples of Business Logic
+
+E-commerce Discount System
+
+If a customer’s cart total is above ₹2000, apply a 10% discount.
+
+If the user is a premium member, give free delivery.
+
+Banking Application
+
+A user cannot withdraw more money than their account balance.
+
+Daily withdrawal limit should not exceed a fixed amount.
+
+Exam Registration System
+
+Only students who have paid the exam fee can download the admit card.
+
+Students cannot register after the deadline.
+
+These rules are implemented in the backend as business logic.

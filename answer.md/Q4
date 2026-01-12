@@ -1,0 +1,23 @@
+Q4. Client–Server Model
+
+The Client–Server Model is a structure where work is divided between two sides: the client and the server.
+
+1. Who is the Client?
+
+The client is the user’s device or browser (Chrome, Firefox, mobile apps). It sends requests and displays responses. Example: when you click “Login,” the browser is the client.
+
+2. Who is the Server?
+
+The server is a computer or system that receives requests, processes them, accesses the database, and sends back the response.
+
+3. How Communication Happens
+
+The client sends a request (HTTP/HTTPS) to the server.
+
+The server processes the request.
+
+The server sends a response back to the client.
+
+The client displays the result to the user.
+
+Example: When you open a website, your browser requests data from the server, and the server returns the web page.

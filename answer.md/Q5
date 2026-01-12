@@ -1,0 +1,49 @@
+Q5. Three-Tier Architecture
+
+Three-Tier Architecture divides a web application into three separate layers. Each layer has a specific responsibility.
+
+1. Presentation Layer
+
+This is the Frontend.
+It handles:
+
+User interface
+
+Display of data
+
+User inputs
+Example: HTML, CSS, JavaScript, React.
+
+2. Application (Business) Layer
+
+This is the Backend logic layer.
+It handles:
+
+Business rules
+
+Request processing
+
+Authentication and authorization
+Example: Node.js, Java Spring, Python Flask.
+
+3. Data Layer
+
+This is the Database layer.
+It handles:
+
+Storing data
+
+Retrieving data
+
+Managing records
+Example: MySQL, MongoDB, PostgreSQL.
+
+Why This Architecture Is Used
+
+Separation of concerns: Each layer has a clear responsibility.
+
+Scalability: Layers can be upgraded independently.
+
+Maintainability: Easier to debug and modify.
+
+Security: Database is not directly exposed to users.
