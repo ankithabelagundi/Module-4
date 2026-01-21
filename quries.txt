@@ -1,0 +1,88 @@
+Input: CREATE TABLE students (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    age INTEGER NOT NULL,
+    course TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+Output:Success. No rows returned
+
+
+Input: INSERT INTO students (name, email, age, course) VALUES
+('Ankitha Belagundi', 'ankitha@gmail.com', 22, 'Full Stack Development'),
+('Rahul Sharma', 'rahul@gmail.com', 24, 'Data Science'),
+('Sneha Kulkarni', 'sneha@gmail.com', 21, 'Full Stack Development'),
+('Amit Verma', 'amit@gmail.com', 19, 'Cyber Security'),
+('Neha Reddy', 'neha@gmail.com', 23, 'Data Science'),
+('Vikram Singh', 'vikram@gmail.com', 25, 'Cloud Computing'),
+('Pooja Nair', 'pooja@gmail.com', 20, 'UI UX Design');
+Output:Success. No rows returned
+
+Input: SELECT * FROM students;
+Output: 
+| id | name              | email             | age | course                 | created_at                 |
+| -- | ----------------- | ----------------- | --- | ---------------------- | -------------------------- |
+| 2  | Rahul Sharma      | rahul@gmail.com   | 24  | Data Science           | 2026-01-21 11:23:23.639145 |
+| 3  | Sneha Kulkarni    | sneha@gmail.com   | 21  | Full Stack Development | 2026-01-21 11:23:23.639145 |
+| 5  | Neha Reddy        | neha@gmail.com    | 23  | Data Science           | 2026-01-21 11:23:23.639145 |
+| 1  | Ankitha Belagundi | ankitha@gmail.com | 23  | Full Stack Development | 2026-01-21 11:23:23.639145 |
+| 6  | Vikram Singh      | vikram@gmail.com  | 25  | DevOps                 | 2026-01-21 11:23:23.639145 |
+
+Input:SELECT * FROM students
+WHERE age > 20;
+Output:
+| id | name              | email             | age | course                 | created_at                 |
+| -- | ----------------- | ----------------- | --- | ---------------------- | -------------------------- |
+| 2  | Rahul Sharma      | rahul@gmail.com   | 24  | Data Science           | 2026-01-21 11:23:23.639145 |
+| 3  | Sneha Kulkarni    | sneha@gmail.com   | 21  | Full Stack Development | 2026-01-21 11:23:23.639145 |
+| 5  | Neha Reddy        | neha@gmail.com    | 23  | Data Science           | 2026-01-21 11:23:23.639145 |
+| 1  | Ankitha Belagundi | ankitha@gmail.com | 23  | Full Stack Development | 2026-01-21 11:23:23.639145 |
+| 6  | Vikram Singh      | vikram@gmail.com  | 25  | DevOps                 | 2026-01-21 11:23:23.639145 |
+
+Input: SELECT name, email FROM students;
+Output:
+| name              | email             |
+| ----------------- | ----------------- |
+| Rahul Sharma      | rahul@gmail.com   |
+| Sneha Kulkarni    | sneha@gmail.com   |
+| Neha Reddy        | neha@gmail.com    |
+| Ankitha Belagundi | ankitha@gmail.com |
+| Vikram Singh      | vikram@gmail.com  |
+
+
+Input: SELECT * FROM students
+WHERE course = 'Data Science';
+Output:
+| id | name         | email           | age | course       | created_at                 |
+| -- | ------------ | --------------- | --- | ------------ | -------------------------- |
+| 2  | Rahul Sharma | rahul@gmail.com | 24  | Data Science | 2026-01-21 11:23:23.639145 |
+| 5  | Neha Reddy   | neha@gmail.com  | 23  | Data Science | 2026-01-21 11:23:23.639145 |
+
+Input:UPDATE students
+SET age = 23
+WHERE email = 'ankitha@gmail.com';
+Output:
+Success. No rows returned
+
+Input: UPDATE students
+SET course = 'DevOps'
+WHERE course = 'Cloud Computing';
+Output:Success. No rows returned
+
+Input:DELETE FROM students
+WHERE id = 4;
+Output:Success. No rows returned
+
+Input: DELETE FROM students
+WHERE age < 21;
+Output: Success. No rows returned
+
+SELECT * FROM students;
+Output: | id | name              | email             | age | course                 | created_at                 |
+| -- | ----------------- | ----------------- | --- | ---------------------- | -------------------------- |
+| 2  | Rahul Sharma      | rahul@gmail.com   | 24  | Data Science           | 2026-01-21 11:23:23.639145 |
+| 3  | Sneha Kulkarni    | sneha@gmail.com   | 21  | Full Stack Development | 2026-01-21 11:23:23.639145 |
+| 5  | Neha Reddy        | neha@gmail.com    | 23  | Data Science           | 2026-01-21 11:23:23.639145 |
+| 1  | Ankitha Belagundi | ankitha@gmail.com | 23  | Full Stack Development | 2026-01-21 11:23:23.639145 |
+| 6  | Vikram Singh      | vikram@gmail.com  | 25  | DevOps                 | 2026-01-21 11:23:23.639145 |
