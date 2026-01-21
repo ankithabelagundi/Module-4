@@ -1,0 +1,104 @@
+# Database Fundamentals – Conceptual Understanding
+
+## 1. Why is `db.json` not suitable as a database for real projects?
+
+Using a file like `db.json` as a database may work for learning or very small applications, but it is not suitable for real-world projects due to several limitations.
+
+### Limitations of File-Based Storage
+
+- **Performance Issues**  
+  Every read or write operation requires loading the entire file into memory. As data grows, this becomes slow and inefficient.
+
+- **Scalability Problems**  
+  File-based storage does not scale well. Handling large datasets or many users accessing the file simultaneously is difficult and unreliable.
+
+- **Concurrency Issues**  
+  Multiple users or processes trying to read and write at the same time can cause data conflicts or corruption because file locking is limited.
+
+- **Reliability Issues**  
+  If the system crashes during a write operation, the file may become corrupted, leading to data loss.
+
+- **Lack of Advanced Features**  
+  File storage does not support indexing, querying, transactions, backups, or access control, which are essential for production applications.
+
+---
+
+## 2. What are the ideal characteristics of a database system (apart from just storage)?
+
+A good database system provides much more than simple data storage. Some important characteristics are:
+
+### Performance
+- Optimized for fast data retrieval and updates.
+- Uses indexing and query optimization to reduce response time.
+
+### Concurrency
+- Allows multiple users to read and write data simultaneously without conflicts.
+- Ensures data consistency even with parallel operations.
+
+### Reliability
+- Protects data from crashes, power failures, and unexpected shutdowns.
+- Ensures data is not lost or corrupted.
+
+### Data Integrity
+- Enforces rules such as primary keys, foreign keys, and constraints.
+- Prevents invalid or duplicate data from entering the system.
+
+### Scalability
+- Can handle increasing amounts of data and users.
+- Supports vertical scaling (better hardware) and horizontal scaling (more servers).
+
+### Fault Tolerance
+- Automatically recovers from failures.
+- Uses backups, replication, and failover mechanisms.
+
+---
+
+## 3. How many types of databases are there? What are their use cases?
+
+Databases are broadly classified into **two main types**:
+
+---
+
+### 1. Relational Databases (SQL)
+
+Relational databases store data in tables with rows and columns and use structured schemas.
+
+**Examples:** MySQL, PostgreSQL, Oracle, SQL Server
+
+**Use Cases:**
+- Banking systems (accounts, transactions)
+- E-commerce applications (orders, users, payments)
+- Inventory management systems
+- Applications requiring complex queries and strong data consistency
+
+**Why use them?**
+- Strong data integrity
+- ACID compliance
+- Well-structured and predictable data
+
+---
+
+### 2. Non-Relational Databases (NoSQL)
+
+NoSQL databases store data in flexible formats such as documents, key-value pairs, or graphs.
+
+**Examples:** MongoDB, Redis, Cassandra, Firebase
+
+**Use Cases:**
+- Social media platforms
+- Real-time chat applications
+- Big data and analytics
+- Applications with rapidly changing or unstructured data
+
+**Why use them?**
+- High scalability
+- Flexible schemas
+- Better performance for large-scale distributed systems
+
+---
+
+## Conclusion
+
+- File-based storage like `db.json` is suitable only for learning or small demos.
+- Real-world applications require database systems with performance, reliability, and scalability.
+- Choosing between SQL and NoSQL depends on the type of data and application requirements.
