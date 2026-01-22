@@ -1,0 +1,94 @@
+SELECT * FROM students;
+| id | name              | email             | age | course                 | created_at                 |
+| -- | ----------------- | ----------------- | --- | ---------------------- | -------------------------- |
+| 2  | Rahul Sharma      | rahul@gmail.com   | 24  | Data Science           | 2026-01-21 11:23:23.639145 |
+| 3  | Sneha Kulkarni    | sneha@gmail.com   | 21  | Full Stack Development | 2026-01-21 11:23:23.639145 |
+| 5  | Neha Reddy        | neha@gmail.com    | 23  | Data Science           | 2026-01-21 11:23:23.639145 |
+| 6  | Vikram Singh      | vikram@gmail.com  | 25  | DevOps                 | 2026-01-21 11:23:23.639145 |
+| 1  | Ankitha Belagundi | ankitha@gmail.com | 24  | Full Stack Development | 2026-01-21 11:23:23.639145 |
+
+SELECT COUNT(*) from students;
+| count |
+| ----- |
+| 5     |
+
+SELECT AVG(age) FROM students;
+| avg                 |
+| ------------------- |
+| 23.4000000000000000 |
+
+
+SELECT 
+    MIN(age) AS min_age,
+    MAX(age) AS max_age
+FROM students;
+| min_age | max_age |
+| ------- | ------- |
+| 21      | 25      |
+
+SELECT COUNT(*) AS students_above_20
+FROM students
+WHERE age > 20;
+| students_above_20 |
+| ----------------- |
+| 5                 |
+
+SELECT course, COUNT(*) FROM students GROUP BY course;
+| course                 | count |
+| ---------------------- | ----- |
+| DevOps                 | 1     |
+| Data Science           | 2     |
+| Full Stack Development | 2     |
+
+SELECT * FROM students
+ORDER BY created_at DESC
+LIMIT 3;
+| id | name           | email           | age | course                 | created_at                 |
+| -- | -------------- | --------------- | --- | ---------------------- | -------------------------- |
+| 2  | Rahul Sharma   | rahul@gmail.com | 24  | Data Science           | 2026-01-21 11:23:23.639145 |
+| 3  | Sneha Kulkarni | sneha@gmail.com | 21  | Full Stack Development | 2026-01-21 11:23:23.639145 |
+| 5  | Neha Reddy     | neha@gmail.com  | 23  | Data Science           | 2026-01-21 11:23:23.639145 |
+
+
+SELECT table_name
+FROM information_schema.tables
+WHERE table_name = 'students';
+| table_name |
+| ---------- |
+| students   |
+
+SELECT 
+    course,
+    COUNT(*) AS student_count
+FROM students
+GROUP BY course
+HAVING COUNT(*) > 1;
+| course                 | student_count |
+| ---------------------- | ------------- |
+| Data Science           | 2             |
+| Full Stack Development | 2             |
+
+SELECT *
+FROM students
+ORDER BY age DESC
+LIMIT 5;
+| id | name              | email             | age | course                 | created_at                 |
+| -- | ----------------- | ----------------- | --- | ---------------------- | -------------------------- |
+| 6  | Vikram Singh      | vikram@gmail.com  | 25  | DevOps                 | 2026-01-21 11:23:23.639145 |
+| 2  | Rahul Sharma      | rahul@gmail.com   | 24  | Data Science           | 2026-01-21 11:23:23.639145 |
+| 1  | Ankitha Belagundi | ankitha@gmail.com | 24  | Full Stack Development | 2026-01-21 11:23:23.639145 |
+| 5  | Neha Reddy        | neha@gmail.com    | 23  | Data Science           | 2026-01-21 11:23:23.639145 |
+| 3  | Sneha Kulkarni    | sneha@gmail.com   | 21  | Full Stack Development | 2026-01-21 11:23:23.639145 |
+
+SELECT *
+FROM students
+WHERE course = 'Physics'
+ORDER BY age DESC;
+| id | name              | email             | age | course                 | created_at                 |
+| -- | ----------------- | ----------------- | --- | ---------------------- | -------------------------- |
+| 6  | Vikram Singh      | vikram@gmail.com  | 25  | DevOps                 | 2026-01-21 11:23:23.639145 |
+| 2  | Rahul Sharma      | rahul@gmail.com   | 24  | Data Science           | 2026-01-21 11:23:23.639145 |
+| 1  | Ankitha Belagundi | ankitha@gmail.com | 24  | Full Stack Development | 2026-01-21 11:23:23.639145 |
+| 5  | Neha Reddy        | neha@gmail.com    | 23  | Data Science           | 2026-01-21 11:23:23.639145 |
+| 3  | Sneha Kulkarni    | sneha@gmail.com   | 21  | Full Stack Development | 2026-01-21 11:23:23.639145 |
+
