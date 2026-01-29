@@ -1,0 +1,2 @@
+Why should cascade delete be handled at the database level?
+Cascade delete at the database level guarantees data integrity even if the application fails, crashes, or multiple services access the database. It eliminates orphan records, reduces application complexity, avoids race conditions, and ensures consistent behavior regardless of how data is deleted.
